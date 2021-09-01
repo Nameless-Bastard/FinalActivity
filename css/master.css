@@ -1,0 +1,129 @@
+      table.table_style {
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 80%;
+        overflow: hidden;
+        border-top: solid white 2px;
+      }
+
+      .table_style thead {
+        background-color: #612300;
+        color: white;
+      }
+
+      .table_style tbody {
+        background-color: transparent;
+      }
+
+      .table_style th {
+        padding: 18px 10px;
+      }
+
+      .table_style td {
+        padding: 12px 10px;
+      }
+
+      .tbody_style tr:nth-child(even) {
+        background-color: #ed9664;
+      }
+
+      .barangay_district {
+        /*background: linear-gradient(45deg,#612300, #ed9664,#612300,#ed9664,#612300);*/
+        background: radial-gradient(#852905, #852905, #612300, #612300, #612300);
+        text-align: center;
+        border-style: solid none none none;
+      }
+
+      td.td_noResult {
+        text-align: center;
+      }
+
+      form.searchbtn input[type=text] {
+        padding: 10px;
+        font-size: 17px;
+        border: 1px solid white;
+        float: left;
+        width: 85%;
+        background: #f1f1f1;
+        color: black;
+        margin-top: 10px;
+      }
+
+      form.searchbtn input[type=submit] {
+        float: left;
+        width: 15%;
+        padding: 10px;
+        background: #612300;
+        color: white;
+        font-size: 17px;
+        border: 1px solid white;
+        border-left: none;
+        cursor: pointer;
+        margin-top: 10px;
+      }
+
+      form.searchbtn input[type=submit]:hover {
+        background: #ed9664;
+      }
+
+      span.searchTotal sup {
+        float: left;
+        position: static;
+
+      }
+      .navbar {
+      overflow:visible;
+      background-color: #612300;
+      position: fixed;
+      top: 0;
+      width: 100%;
+      height: 70px;
+      border-radius: 0;
+    }
+
+    .navbar a {
+      float: right;
+      display: inline-block;
+      color: #f2f2f2;
+      text-align: center;
+      padding: 14px 16px;
+      text-decoration: none;
+      font-size: 17px;
+    }
+    #home{
+      float:left;
+
+    }
+
+    .navbar a:hover {
+      background:#ed9664 ;
+      color: black;
+    }
+    .Main_div{
+      margin-top:70px;
+    }
+    .headings{
+      text-align: center;
+      padding-top:30px;
+      overflow: hidden;
+    }
+    #tableheading{
+      text-align: center;
+      margin:0;
+      padding:0;
+    }
+    /* div.aside{
+      display: inline-block;
+      margin-left: auto;
+      margin-right: auto;
+      width:auto;
+      overflow:visible;
+      background-color: #615300;
+    }
+    div.aside a{
+      color: #f2f2f2;
+      display: inline-block;
+      padding: 14px 16px;
+      text-decoration: none;
+      font-size: 17px;
+    } */
