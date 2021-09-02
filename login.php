@@ -38,41 +38,35 @@ $errors = array();
 
  ?>
 
-<html>
-  <head>
-    <title>Login</title>
-    <link rel="stylesheet" type="text/css" href="styleShit.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+ <html>
+   <head>
+     <title>Login</title>
 
-  </head>
+     <link rel="stylesheet" type="text/css" href="css/styleShit.css">
+   </head>
 
-  <body>
-    <div class='main-container'>
-        <img src="img/urban.svg" class="urban"/>
-        <img src="img/gray.png" class="gray" />
-          <div class="loginBox">
-            <img src="img/avatar.svg" class="avatar" />
-              <h1 class="login">Login</h1>
-                <form action="login.php" method="post">
-                  <?php include('errors.php'); ?>
-                  <label>Username</label><br />
-                  <input type="text" placeholder="Enter username" name="userName" /> <br /><br />
-                  <label>Password</label> <br />
-                  <input type ="password" placeholder="Enter password" name="password" /> <br /><br />
+   <body>
+     <div class="maindiv">
+       <div class="onehalfdivfirst">
+         <img src="img/urban2.png">
+       </div>
+       <div class="onehalfdivsecond">
 
-                  <input type="submit" value="Login" name="loginBtn" />
-                </form>
-          </div>
-    </div>
+         <div class="loginBox">
+           <img src="img/avatar.svg" class="avatar" />
+           <h1 class="urban">Login</h1>
+           <form action="user.php" method="post">
+             <?php include('errors.php'); ?>
+             <label>Username</label><br />
+             <input type="text" placeholder="Enter username" name="userName" /> <br /><br />
+             <label>Password</label> <br />
+             <input type ="password" placeholder="Enter password" name="password" /> <br /><br />
+             <input type="submit" value="Login" name="loginBtn" />
+             <!-- <p><?php //echo $LoginInput ?></p> -->
+           </form>
+         </div>
+       </div>
+     </div>
+   </body>
 
-
-
-
-
-
-
-
-  </body>
-
-</html>
+ </html>
