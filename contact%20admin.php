@@ -1,30 +1,3 @@
-<?php
-$msg = "";
-function Message($fname, $lname, $email, $subject, $Message){
-  include('db.php');
-
-  $sql = "INSERT INTO mailbox (FirstName, LastName, email, Subject, Message)
-  VALUES ('$fname', '$lname', '$email', '$subject', '$Message')";
-  $result = $conn->query($sql);
-
-  if($result == TRUE) {
-    $msg = "New record created successfully";
-  }
-
-  else {
-    $msg = $conn->error;
-  }
-
-
-}
-
-
-if(isset($_POST['addMailBtn']))
-{
-echo Message($_POST['FirstName'],$_POST['LastName'],$_POST['Email'],$_POST['Subject'],$_POST['Message']);
-}
-
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -181,11 +154,38 @@ echo Message($_POST['FirstName'],$_POST['LastName'],$_POST['Email'],$_POST['Subj
       <h1 style="text-align:center;">Contact Pasig City Government</h1><br>
       <p style="font-size:20px;text-align:justify;">Victor Ma. Regis N. Sotto is committed in creating the most open and accessible Pasig City administration.
         To send questions, comments, concerns, or well-wishes to the Mayor or his staff, please use the form below.</p>
-        <p style="font-size:20px;text-align:justify;background-color:#852905"><?php echo $msg; ?></p>
-
 
     </div>
   </div>
 
 </body>
 </html>
+<?php
+
+function Message($fname, $lname, $email, $subject, $Message){
+  include('db.php');
+
+  $sql = "INSERT INTO mailbox (FirstName, LastName, email, Subject, Message)
+  VALUES ('$fname', '$lname', '$email', '$subject', '$Message')";
+  $result = $conn->query($sql);
+
+  if($result == TRUE) {
+    $msg = "New record created successfully";
+  }
+
+  else {
+    $msg = $conn->error;
+  }
+
+  $conn->close();
+  return $msg;
+
+}
+
+
+if(isset($_POST['addMailBtn']))
+{
+echo Message($_POST['FirstName'],$_POST['LastName'],$_POST['Email'],$_POST['Subject'],$_POST['Message']);
+}
+
+?>
