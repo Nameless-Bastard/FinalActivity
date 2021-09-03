@@ -49,10 +49,10 @@ while($row = $result->fetch_assoc()) {
   </head>
  <body>
    <div class="navbar">
-    <a id="home" href="#">Home</a>
-    <a href="#">Contact</a>
-    <a href="#">Cases</a>
-    <a href="#">Barangay</a>
+    <a id="home" href="index.html">Home</a>
+    <a href="contact.php">Contact</a>
+    <a href="casesList.php">Cases</a>
+    <a href="barangayList.php">Barangay</a>
    </div>
 
    <div class="Main_div">
