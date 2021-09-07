@@ -1,122 +1,221 @@
+body {
+  background-image: url(../img/bg3.png);
+  background-repeat: repeat;
+}
+
 table.table_style {
-        margin-left: auto;
-        margin-right: auto;
-        max-width: 80%;
-        overflow: hidden;
-        border-top: solid white 2px;
-      }
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 80%;
+  overflow: hidden;
+  border-top: solid white 2px;
+}
 
-      .table_style thead {
-        background-color: #612300;
-        color: white;
-      }
+.header {
+  padding: 10px;
+  background: linear-gradient(white, white, #d47033);
+  border-bottom: solid white 2px;
+  background-image: url('../img/headerBG.jpg');
+  background-size: cover;
+  background-position: top;
+}
 
-      .table_style tbody {
-        background-color: transparent;
-      }
+.headerImage {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
 
-      .table_style th {
-        padding: 18px 10px;
-      }
+.table_style thead {
+  background-color: #d47033;
+  color: white;
+  text-align: center;
+}
 
-      .table_style td {
-        padding: 12px 10px;
-      }
+.table_style tbody {
+  background-color: transparent;
+}
 
-      .tbody_style tr:nth-child(even) {
-        background-color: #ed9664;
-      }
+.table_style th {
+  padding: 18px 10px;
+}
 
-      .barangay_district {
-        /*background: linear-gradient(45deg,#612300, #ed9664,#612300,#ed9664,#612300);*/
-        background: radial-gradient(#852905, #852905, #612300, #612300, #612300);
-        text-align: center;
-        border-style: solid none none none;
-      }
+.table_style td {
+  padding: 12px 10px;
+}
 
-      td.td_noResult {
-        text-align: center;
-      }
+.tbody_style tr:nth-child(even) {
+  background-color: #f7aa7e;
+}
 
-      form.searchbtn input[type=text] {
-        padding: 10px;
-        font-size: 17px;
-        border: 1px solid white;
-        float: left;
-        width: 85%;
-        background: #f1f1f1;
-        color: black;
-        margin-top: 10px;
-      }
+.barangay_district {
+  /*background: linear-gradient(45deg,#d47033, #f7aa7e,#d47033,#f7aa7e,#d47033);*/
+  background: radial-gradient(#d9793f, #d9793f, #d47033, #d47033, #d47033);
+  text-align: center;
+  border-style: solid none none none;
+}
 
-      form.searchbtn input[type=submit] {
-        float: left;
-        width: 15%;
-        padding: 10px;
-        background: #612300;
-        color: white;
-        font-size: 17px;
-        border: 1px solid white;
-        border-left: none;
-        cursor: pointer;
-        margin-top: 10px;
-      }
+td.td_noResult {
+  text-align: center;
+}
 
-      form.searchbtn input[type=submit]:hover {
-        background: #ed9664;
-      }
+form.searchbtn.barangayList input[type=text] {
+  padding: 10px;
+  font-size: 17px;
+  border: 1px solid white;
+  float: left;
+  width: 85%;
+  background: #f1f1f1;
+  color: black;
+  margin-top: 10px;
+}
+form.searchbtn input[type=text] {
+  padding: 10px;
+  font-size: 17px;
+  border: 1px solid white;
+  float: left;
+  width: 65%;
+  background: #f1f1f1;
+  color: black;
+  margin-top: 10px;
+}
+form.searchbtn input[type=date] {
+  padding: 9px;
+  font-size: 17px;
+  border: 1px solid white;
+  border-left: solid 1px #d47033;
+  float: left;
+  width: 20%;
+  background: #f1f1f1;
+  color: black;
+  margin-top: 10px;
+}
+form.searchbtn input[type=submit] {
+  float: left;
+  width: 15%;
+  padding: 10px;
+  background: #d47033;
+  color: white;
+  font-size: 17px;
+  border: 1px solid white;
+  border-left: none;
+  cursor: pointer;
+  margin-top: 10px;
+}
 
-      span.searchTotal{
-        float:left;
-      }
-      span.searchTotal sup {
-        float: left;
-        position:inherit;
+form.searchbtn input[type=submit]:hover {
+  background: #f7aa7e;
+}
 
-      }
-      .navbar {
-      overflow:auto;
-      /* background: linear-gradient(#612300, #612300, #612300, #612300, #852905, #c7653e); */
-      background-color:#612300;
-      position: fixed;
-      top: 0;
-      width: 100%;
-      max-height: 70px;
-      border-radius: 0;
-    }
+span.searchTotal {
+  float: left;
+}
 
-    .navbar a {
-      float:right;
-      color: #f2f2f2;
-      text-align: center;
-      padding: 14px 16px;
-      text-decoration: none;
-      font-size: 17px;
-    }
-    #home{
-      float:left;
+span.searchTotal sup {
+  float: left;
+  position: inherit;
+}
 
-    }
+#logoutred {
+  background-color: #d63b22;
+}
 
-    .navbar a:hover {
-      background:#ed9664 ;
-      color: black;
-      border-radius: 15px 0 15px 0;
-    }
-    .Main_div{
-      margin-top:70px;
-    }
-    .headings{
-      text-align: center;
-      padding-top:30px;
-      overflow: hidden;
-    }
-    #tableheading{
-      text-align: center;
-      margin:0;
-      padding:0;
-    }
-    /* div.aside{
+#logoutred:hover {
+  background-color: #e81f00;
+}
+.postMessage {
+  background-color: #f7e5d2;
+  border: solid white; 1px;
+  border-radius: 10px;
+  width: 700px;
+  padding: 20px;
+  margin: 30px auto;
+}
+.postMessage p{
+  background-color:white;
+  border-radius: 10px;
+  padding:5px;
+}
+.floatRighT{
+  float: right;
+  margin-right: 20px;
+}
+
+
+
+.navbar {
+  overflow: visible;
+  background-color: #d47033;
+  position: static;
+  width: 100%;
+  height: 70px;
+  border-radius: 0;
+}
+
+.navbar a {
+  float: right;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+  border-radius: 10px;
+  border: solid #f7aa7e 1px;
+  margin-left: 3px;
+}
+
+#home {
+  float: left;
+}
+
+.navbar a:hover {
+  background: #f7aa7e;
+  color: black;
+  border: solid white 1px;
+  border-radius: 10px;
+}
+
+.Main_div {
+  margin-top: 70px;
+}
+
+.headings {
+  text-align: center;
+  padding-top: 30px;
+  overflow: hidden;
+}
+
+#tableheading {
+  text-align: center;
+  margin: 0;
+  padding: 0;
+}
+
+.date {
+  float: right;
+  position: static;
+  color: black;
+  margin: 0;
+  padding: 0;
+}
+
+.addBtn {
+  margin-left: 20px;
+}
+
+.modal-body {
+  background: linear-gradient(transparent, #ed9664, #ed9664, pink, pink);
+}
+
+.modal-title {
+  font-family: 'Roboto', sans-serif;
+}
+
+.modal-body label {
+  font-weight: bold;
+}
+
+/* div.aside{
       display: inline-block;
       margin-left: auto;
       margin-right: auto;
@@ -131,3 +230,109 @@ table.table_style {
       text-decoration: none;
       font-size: 17px;
     } */
+.contact input[type=text], select, textarea {
+  width: 100%;
+  padding: 12px;
+  border-radius: 4px;
+  resize: vertical;
+  border: solid 5px #d47033;
+}
+
+.contact input[type=email] {
+  width: 100%;
+  padding: 12px;
+  border: solid 5px #d47033;
+  border-radius: 4px;
+  resize: vertical;
+}
+
+.contact label {
+  padding: 12px 12px 12px 0;
+  display: inline-block;
+}
+
+.contact input[type=submit] {
+  background-color: #d47033;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  float: left;
+}
+
+.contact input[type=submit]:hover {
+  background-color: #f7aa7e;
+  border: solid 2px white;
+}
+
+.container {
+  background-color: #f7aa7e;
+  display: inline-block;
+  border-radius: 5px;
+  padding: 20px;
+  width: 60%;
+}
+
+.second_container {
+  float: right;
+  border-radius: 5px;
+  padding: 20px;
+  width: 40%;
+  border-bottom-style: solid red 2px;
+  padding-bottom: 5px;
+}
+
+
+.col-25 {
+  float: left;
+  width: 25%;
+}
+
+.col-75 {
+  float: left;
+  width: 90%;
+}
+
+/* Clear floats after the columns */
+.roww:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.Lcontacts_container {
+  background-color: #f7aa7e;
+  float: left;
+  width: 33%;
+  text-align: center;
+  height: 170px;
+  vertical-align: top;
+  border-right: solid 2px #d47033;
+  border-top: solid 10px #d47033;
+}
+
+.Mcontacts_container {
+  background-color: #f7aa7e;
+  float: left;
+  text-align: center;
+  width: 33%;
+  height: 170px;
+  vertical-align: top;
+  border-top: solid 5px #d47033;
+  border-bottom: solid 5px #d47033;
+}
+
+.Rcontacts_container {
+  background-color: #f7aa7e;
+  float: left;
+  text-align: center;
+  width: 33%;
+  height: 170px;
+  vertical-align: top;
+  border-left: solid 2px #d47033;
+  border-bottom: solid 10px #d47033;
+}
+.selectedNavbar{
+  background: #f7aa7e;
+}

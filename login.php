@@ -1,72 +1,48 @@
 <?php
+    session_start();
+    $message="";
+    if(count($_POST)>0) {
+        $con = mysqli_connect('127.0.0.1:3306','root','','admin') or die('Unable To connect');
+        $result = mysqli_query($con,"SELECT * FROM login_user WHERE user_name='" . $_POST["user_name"] . "' and password = '". $_POST["password"]."'");
+        $row  = mysqli_fetch_array($result);
+        if(is_array($row)) {
+        $_SESSION["id"] = $row['id'];
+        $_SESSION["name"] = $row['name'];
+        } else {
+         $message = "Invalid Username or Password!";
+        }
+    }
+    if(isset($_SESSION["id"])) {
+    header("Location:index.php");
+    }
+?>
+<html>
+  <head>
+    <title>Admin Login</title>
+    <link rel="stylesheet" type="text/css" href="css/styleShit.css">
+  </head>
 
-session_start();
-$errors = array();
+  <body style="background-color:white;">
+    <div class="maindiv">
+      <div class="onehalfdivfirst">
+        <img src="img/urban2.png">
+      </div>
+      <div class="onehalfdivsecond">
 
-  include('db.php');
+        <div class="loginBox">
+          <img src="img/avatar.svg" class="avatar" />
+          <form name="frmUser" method="post">
+            <div class="error"><?php if($message!="") { echo $message; } ?></div>
+            <h3 align="center">Enter Login Details</h3>
+            <label>Username</label><br />
+            <input type="text" placeholder="Enter username" name="user_name" /> <br /><br />
+            <label>Password</label> <br />
+            <input type ="password" placeholder="Enter password" name="password" /> <br /><br />
+            <input type="submit" value="Submit" name="submit" />
+          </form>
+        </div>
+      </div>
+    </div>
+  </body>
 
-  if (isset($_POST['loginBtn'])) {
-		$username = mysqli_real_escape_string($conn, $_POST['userName']);
-		$password =  mysqli_real_escape_string($conn, $_POST['password']);
-
-		//ensure that form fields are filled properly
-		if(empty($username)){
-		 array_push($errors, "Username is required");
-		}
-		else if(empty($password)){
-      array_push($errors, "Password is required");
-		}
-
-		if (count($errors) == 0) {
-			$password = md5($password); // encrypt before comparing with that from database
-			$query = "SELECT * FROM login WHERE Username = '$username' AND Password='$password'";
-			$result = mysqli_query($conn, $query);
-			if (mysqli_num_rows($result) == 1) {
-				// log user in
-          $_SESSION['username'] = $username;
-  				$_SESSION['success'] = "You are now logged in";
-  				header('location: Home.php'); // redirect to homepage
-  			}else{
-          array_push($errors, "wrong  username/password combination");
-  			}
-		}
-
-
-	}
-
-
-
- ?>
-
- <html>
-   <head>
-     <title>Login</title>
-
-     <link rel="stylesheet" type="text/css" href="css/styleShit.css">
-   </head>
-
-   <body>
-     <div class="maindiv">
-       <div class="onehalfdivfirst">
-         <img src="img/urban2.png">
-       </div>
-       <div class="onehalfdivsecond">
-
-         <div class="loginBox">
-           <img src="img/avatar.svg" class="avatar" />
-           <h1 class="urban">Login</h1>
-           <form action="user.php" method="post">
-             <?php include('errors.php'); ?>
-             <label>Username</label><br />
-             <input type="text" placeholder="Enter username" name="userName" /> <br /><br />
-             <label>Password</label> <br />
-             <input type ="password" placeholder="Enter password" name="password" /> <br /><br />
-             <input type="submit" value="Login" name="loginBtn" />
-             <!-- <p><?php //echo $LoginInput ?></p> -->
-           </form>
-         </div>
-       </div>
-     </div>
-   </body>
-
- </html>
+</html>

@@ -1,7 +1,14 @@
 <?php
+session_start();
+$logout;
+if(empty($_SESSION["name"])) {
+  header("location:login.php");
+}
+?>
+<?php
 $barangayId = $_GET['bid'];
 if(null==$barangayId){
-  header("location:barangayList.php");
+  header("location:barangayListAdmin.php");
 }
 
 
@@ -14,7 +21,7 @@ function editBarangay($barangayId, $Bname, $Bcaptain, $Bcontact, $Bdistrict){
   $result = $conn->query($sql);
 
   if($result == TRUE) {
-    header("location:barangayList.php");
+    header("location:barangayListAdmin.php");
   } else {
     $msg = $conn->error;
   }
@@ -28,11 +35,28 @@ echo editBarangay($barangayId, $_POST['barangayName'], $_POST['barangayCaptain']
  ?>
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Edit Barangay</title>
-  </head>
+<head>
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
+  <link rel="stylesheet" href="css/master.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="utf-8">
+  <title>Edit Barangay</title>
+</head>
 
  <body>
+   <div class="header">
+     <img class="headerImage" src="img/header.png" alt="header">
+   </div>
+   <div class="navbar">
+
+    <a id="home" href="#index.php">Home</a>
+    <a id="logoutred" href='logout.php' title='Logout'>Logout</a>
+    <a href="contactAdmin.php">Contact</a>
+    <a href="casesListAdmin.php">Cases</a>
+    <a href="barangayListAdmin.php">Barangay</a>
+
+   </div>
   <h1>Edit Barangay</h1>
   <form action="editBarangay.php?bid=<?php echo $barangayId?>" method="post">
     <?php
@@ -67,6 +91,6 @@ echo editBarangay($barangayId, $_POST['barangayName'], $_POST['barangayCaptain']
 
     <input type="submit" value="Edit Barangay" name="editBarangayBtn">
   </form>
-
+<br><br><img src="img/footer.png" alt="footer of webpage">
 </body>
 </html>

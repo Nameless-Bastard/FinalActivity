@@ -1,4 +1,11 @@
 <?php
+session_start();
+$logout;
+if(empty($_SESSION["name"])) {
+  header("location:login.php");
+}
+?>
+<?php
 $msg = "";
 function Messageffs($fname, $lname, $Email, $Subject, $Message){
   include('db.php');
@@ -42,6 +49,10 @@ echo Messageffs($_POST['FirstName'],$_POST['LastName'],$_POST['Email'],$_POST['S
   <link rel="stylesheet" href="css/master.css">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta charset="utf-8">
+  <style>
+
+
+  </style>
 </head>
 <body>
   <div class="header">
@@ -49,19 +60,21 @@ echo Messageffs($_POST['FirstName'],$_POST['LastName'],$_POST['Email'],$_POST['S
   </div>
   <div class="navbar">
 
-   <a id="home" href="index.html">Home</a>
-   <a href="contact.php">Contact</a>
-   <a href="casesList.php">Cases</a>
-   <a href="barangayList.php">Barangay</a>
+   <a id="home" href="#index.php">Home</a>
+   <a id="logoutred" href='logout.php' title='Logout'>Logout</a>
+   <a class="selectedNavbar" href="contactAdmin.php">Contact</a>
+   <a href="casesListAdmin.php">Cases</a>
+   <a href="barangayListAdmin.php">Barangay</a>
+
   </div>
   <div class="Main_div">
     <h1 style="text-align:center;">Contact Pasig City Government</h1><br>
     <p style="font-size:20px; text-align:center; width:70%; margin-left: auto;margin-right:auto;">Victor Ma. Regis N. Sotto is committed in creating the most open and accessible Pasig City administration.
       To send questions, comments, concerns, or well-wishes to the Mayor or his staff, please use the form below.</p>
 
-    <div class="container contact ">
+    <div class="container contact">
       <form action="contactAdmin.php" method="post">
-      <div class="row">
+      <div class="roww">
         <div class="col-25">
           <label for="fname">First Name</label>
         </div>
@@ -69,7 +82,7 @@ echo Messageffs($_POST['FirstName'],$_POST['LastName'],$_POST['Email'],$_POST['S
           <input type="text" id="fname" name="FirstName" placeholder="Your name.." required>
         </div>
       </div>
-      <div class="row">
+      <div class="roww">
         <div class="col-25">
           <label for="lname">Last Name</label>
         </div>
@@ -77,7 +90,7 @@ echo Messageffs($_POST['FirstName'],$_POST['LastName'],$_POST['Email'],$_POST['S
           <input type="text" id="lname" name="LastName" placeholder="Your last name.." required>
         </div>
       </div>
-      <div class="row">
+      <div class="roww">
         <div class="col-25">
           <label for="country">email</label>
         </div>
@@ -85,7 +98,7 @@ echo Messageffs($_POST['FirstName'],$_POST['LastName'],$_POST['Email'],$_POST['S
             <input type="email" name="Email" placeholder="Your email.." required>
         </div>
       </div>
-      <div class="row">
+      <div class="roww">
         <div class="col-25">
           <label for="country">Subject</label>
         </div>
@@ -93,7 +106,7 @@ echo Messageffs($_POST['FirstName'],$_POST['LastName'],$_POST['Email'],$_POST['S
             <input type="text" name="Subject" placeholder="The subject.." required>
         </div>
       </div>
-      <div class="row">
+      <div class="roww">
         <div class="col-25">
           <label for="subject">Message</label>
         </div>
@@ -107,7 +120,7 @@ echo Messageffs($_POST['FirstName'],$_POST['LastName'],$_POST['Email'],$_POST['S
     </div>
     <div class="second_container">
 
-        <div class="limited-container">
+        <div class="limited-container iii">
 
           <?php echo $msg ?>
 
@@ -174,6 +187,47 @@ echo Messageffs($_POST['FirstName'],$_POST['LastName'],$_POST['Email'],$_POST['S
         </div>
     </div>
   </div>
-  <br><br><img src="img/footer.png"  style="width:100%;" alt="footer of webpage">
+  <div class="Main_div">
+
+
+    <?php
+    $found = 0;
+    $showResult='';
+    include('db.php');
+
+    $sql = "SELECT * FROM mailbox ORDER BY DateAndTime  desc LIMIT 5" ;
+
+
+    $result = $conn->query($sql);
+
+    while($row = $result->fetch_assoc()){
+
+      $FNAME = $row['FirstName'];
+      $LNAME = $row['LastName'];
+      $SUBJECT = $row['Subject'];
+      $MESSAGE = $row['Message'];
+      $EMAIL = $row['Email'];
+      $DAT = $row['DateAndTime'];
+
+      echo '<div class="postMessage">';
+      echo "<h4>".$FNAME." ".$LNAME."</h4>";
+      echo "<h6>".$EMAIL."<h6>";
+      echo "<sup>".$DAT."</sup>";
+      echo "<h4>".$SUBJECT."</h4>";
+      echo"<p>".$MESSAGE."</p>";
+      echo '</div>';
+
+
+    }
+    ?>
+
+    </div>
+    <div class="messageSuccess">
+
+    </div>
+
+  </div>
+
+<br><br><img src="img/footer.png"  style="width:100%;" alt="footer of webpage">
 </body>
 </html>
